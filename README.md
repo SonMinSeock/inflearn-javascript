@@ -33,7 +33,7 @@
 - 배열 메서드, 비동기 처리 등 **실무 필수 개념 마스터**
 - DOM 조작, API 호출을 라이브러리 없이 구현 가능
 - 상태 관리 및 SPA 개발 전 과정을 직접 구현
-- React, Next.js 등 라이브러리 학습에 도움이 되는 기초 역량 확보:contentReference[oaicite:2]{index=2}
+- React, Next.js 등 라이브러리 학습에 도움이 되는 기초 역량 확보
 
 ---
 

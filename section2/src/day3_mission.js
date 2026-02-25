@@ -30,19 +30,10 @@ console.log(x);
  */
 const person = {
   name: '효빈',
-  sayName: () => {
-    console.log(`안녕하세요 ${person.name}입니다.`);
+  sayName: function () {
+    console.log(`안녕하세요 ${this.name}입니다.`);
   },
-  run: () => {
-    person.sayName();
-  },
-  // 권장되는 방식은 익명 함수로 사용하는게 좋다. (this 참조)
-  //   sayName: () => {
-  //     console.log(`안녕하세요 ${this.name}입니다.`);
-  //   },
-  //   run: () => {
-  //     this.sayName();
-  //   },
 };
 
-person.run();
+const run = () => person.sayName();
+run();

@@ -10,15 +10,9 @@ function Product(name, price) {
 
 const products = [new Product('모니터', 300000), new Product('키보드', 50000), new Product('노트북', 1200000)];
 
-let expensiveProduct;
-
-products.forEach((product) => {
-  if (!expensiveProduct) {
-    expensiveProduct = product;
-  } else if (product.price > expensiveProduct.price) {
-    expensiveProduct = product;
-  }
-});
+const expensiveProduct = products.reduce((prevProduct, currentProduct) =>
+  currentProduct.price > prevProduct.price ? currentProduct : prevProduct,
+);
 
 console.log(`가장 비싼 상품 이름 : ${expensiveProduct.name}`);
 

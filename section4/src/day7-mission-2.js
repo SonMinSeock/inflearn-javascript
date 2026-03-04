@@ -25,6 +25,6 @@ skills.forEach((skill) => {
 
 $app.appendChild($select);
 
-$app.addEventListener('change', (event) => {
+$select.addEventListener('change', (event) => {
   console.log(event.target.value);
 });

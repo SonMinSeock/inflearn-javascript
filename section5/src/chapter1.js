@@ -40,5 +40,3 @@ cafe.newCafe.print();
 
 const myCafe = cafe.print;
 myCafe(); // 전역 공간에서 일반 함수로 호출한거다. 그래서 window 객체 가리킨다.
-
-// 4. 생성자 함수 호출에서의 this 값

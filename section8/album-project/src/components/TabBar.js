@@ -16,7 +16,6 @@ export default function TabBar({ $app, initialState, onClick }) {
   this.render = () => {
     this.$target.innerHTML = this.template();
 
-    console.log(this.state);
     let $currentTab = document.getElementById(this.state);
     $currentTab && ($currentTab.className = 'clicked');
 

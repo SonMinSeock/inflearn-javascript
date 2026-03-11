@@ -1,16 +1,33 @@
 import Header from './components/Header.js';
+import PocketmonList from './components/PocketmonList.js';
+import { getPokemonList } from './modules/api.js';
 
 export default function App($app) {
   // 상태
-  this.state = {};
+  this.state = {
+    pokemonList: [],
+  };
 
-  // 상태 수정
-  this.setState = () => {};
+  // 포켓몬리스트 컴포넌트
+  let pokemonListComponent = null;
 
-  // 앱 초기화
-  const init = () => {
-    // 헤더 컴포넌트 렌더링
+  // 초기화
+  const init = async () => {
     new Header($app);
+
+    pokemonListComponent = new PocketmonList({
+      $app,
+      initialState: [],
+      handleItemClick: (id) => {
+        console.log('detail', id);
+      },
+      handleTypeClick: (type) => {
+        console.log('type', type);
+      },
+    });
+
+    const data = await getPokemonList();
+    pokemonListComponent.setState(data);
   };
 
   init();

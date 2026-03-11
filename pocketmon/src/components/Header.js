@@ -16,6 +16,7 @@ export default function Header({ $app, onSearch }) {
         </button>
       </div>`;
 
+    const $logo = $header.querySelector('.header-content');
     const $input = $header.querySelector('input');
     const $button = $header.querySelector('button');
 
@@ -29,12 +30,21 @@ export default function Header({ $app, onSearch }) {
       onSearch(keyword);
     };
 
+    // 검색 버튼 이벤트
     $button.addEventListener('click', search);
 
+    // 입력창에 엔터키 누르면 검색
     $input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         search();
       }
+    });
+
+    // 로고 클릭시 메인 이동
+    $logo.addEventListener('click', () => {
+      history.pushState(null, null, '/');
+      $input.value = '';
+      onSearch();
     });
   };
 

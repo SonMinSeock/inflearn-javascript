@@ -27,8 +27,13 @@ export default function App($app) {
       handleItemClick: (id) => {
         console.log('detail', id);
       },
-      handleTypeClick: (type) => {
-        console.log('type', type);
+      handleTypeClick: async (type) => {
+        // URL 변경
+        history.pushState(null, null, `/${type}`);
+
+        const data = await getPokemonList(type);
+
+        pokemonListComponent.setState(data);
       },
     });
 

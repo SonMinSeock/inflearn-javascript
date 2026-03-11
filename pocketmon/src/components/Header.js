@@ -1,4 +1,4 @@
-export default function Header($app) {
+export default function Header({ $app, onSearch }) {
   const $header = document.createElement('div');
   $header.className = 'header';
 
@@ -15,6 +15,27 @@ export default function Header($app) {
           <img src="/src/img/search.png" />
         </button>
       </div>`;
+
+    const $input = $header.querySelector('input');
+    const $button = $header.querySelector('button');
+
+    const search = () => {
+      const keyword = $input.value.trim();
+
+      // URL 변경
+      const url = keyword ? `/?search=${keyword}` : '/';
+      history.pushState(null, null, url);
+
+      onSearch(keyword);
+    };
+
+    $button.addEventListener('click', search);
+
+    $input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        search();
+      }
+    });
   };
 
   this.render();

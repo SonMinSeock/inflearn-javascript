@@ -13,7 +13,13 @@ export default function App($app) {
 
   // 초기화
   const init = async () => {
-    new Header($app);
+    new Header({
+      $app,
+      onSearch: async (searchWord) => {
+        const data = await getPokemonList(null, searchWord);
+        pokemonListComponent.setState(data);
+      },
+    });
 
     pokemonListComponent = new PocketmonList({
       $app,

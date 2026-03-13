@@ -1,6 +1,6 @@
 import { setPokemonType } from '../modules/typeTag.js';
 
-export default function PocketmonList({ $app, initialState, handleItemClick, handleTypeClick }) {
+export default function PokemonList({ $app, initialState, handleItemClick, handleTypeClick }) {
   // 상태
   this.state = initialState;
 
